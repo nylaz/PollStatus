@@ -1,0 +1,746 @@
+/**
+External resources
+ */
+@import url(https://fonts.googleapis.com/css?family=Bangers);
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+
+@font-face {
+    font-family: 'action_manregular';
+    src: url(fonts/Action_Man-webfont.woff) format('woff');
+    font-weight: normal;
+    font-style: normal
+}
+
+/** base style(smaller screens) for navigation and subnavigation **/
+nav {
+    position: fixed;
+    z-index: 9999;
+    box-sizing: border-box;
+    height: 3em;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #bbb;
+    font-family: 'Bangers', cursive;
+    text-shadow: 2px 2px #aaa
+}
+
+nav:before {
+    content: "...";
+    color: #f5f5f5;
+    font-size: 2em;
+    padding: 1em 0.2em;
+    letter-spacing: 5px
+}
+
+nav ul {
+    display: none;
+    background: #bbb;
+    padding: 0.5em
+}
+
+nav.active ul {
+    display: block
+}
+
+nav li {
+    border-bottom: 1px solid #afafaf;
+    font-size: 2em
+}
+
+nav li:last-child {
+    border: none
+}
+
+nav li a {
+    text-decoration: none;
+    display: block;
+    color: #f5f5f5
+}
+
+nav li a:hover {
+    text-shadow: 3px 3px #999
+}
+
+nav li > ul {
+    background: #aaa;
+    padding: 0.25em
+}
+
+nav li ul li {
+    font-size: 1em
+}
+
+@media (min-width: 640px) {
+    nav {
+        position: relative;
+        background: none;
+        height: auto
+    }
+
+    nav:before {
+        content: normal
+    }
+
+    nav ul, nav.active ul {
+        display: flex;
+        align-content: space-between;
+        height: auto;
+        flex-wrap: wrap;
+        background: #bbb;
+        margin: 0 1%;
+        padding: 5px 10px;
+        border-radius: 3px;
+        position: relative
+    }
+
+    nav li {
+        position: relative;
+        font-size: 1.3em;
+        text-shadow: 2px 2px #aaa;
+        margin-right: 1em;
+        border: none
+    }
+
+    nav.active li > ul, nav li > ul {
+        min-width: 160px;
+        display: none;
+        background: #bbb;
+        position: absolute;
+        left: -10px
+    }
+
+    nav li:hover ul {
+        display: block
+    }
+}
+
+@media (min-width: 960px) {
+    nav:hover ul ul, nav li > ul {
+        min-width: 240px
+    }
+
+    nav > ul > li {
+        font-size: 1.48em
+    }
+}
+
+@media (min-width: 1200px) {
+    nav > ul > li {
+        font-size: 1.8em
+    }
+}
+
+/**
+Mobile first
+ */
+body {
+    padding-top: 3em
+}
+
+div.container {
+    width: 100%;
+    margin: 0 auto
+}
+
+main {
+    clear: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start
+}
+
+section {
+    box-sizing: border-box;
+    flex: 1 1 98%;
+    margin: 0 1%;
+    padding: 0.5em;
+    transition-property: width;
+    transition-duration: 1000ms;
+    box-shadow: -3px 3px 13px -7px rgba(0, 0, 0, 0.65)
+}
+
+section.full {
+    flex: 1 1 98%
+}
+
+@media (min-width: 640px) {
+    body {
+        padding-top: 1em
+    }
+
+    div.container {
+        width: 90%
+    }
+
+    section {
+        flex: 1 1 48%
+    }
+}
+
+@media (min-width: 960px) {
+    section {
+        flex: 1 1 31.33%
+    }
+}
+
+div.container:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+form * {
+    font-family: "action_manregular"
+}
+
+select {
+    border-radius: 40%;
+    color: #666
+}
+
+input[type="radio"] {
+    width: 15px;
+    height: 15px
+}
+
+.radioLabel {
+}
+
+input[type="radio"]:checked + label {
+    font-weight: bold;
+    color: green
+}
+
+button, input[type="submit"], input[type="button"] {
+    font-family: "action_manregular";
+    border-radius: 0.8em;
+    font-size: 0.8em;
+    padding: 0.3em 0.1em;;
+    width: 9em;
+    background: #9fb4f2;
+    color: white
+}
+
+button:hover {
+    box-shadow: 0 0 1em 0.2em #a3a3a3
+}
+
+input[type="submit"]:hover {
+    box-shadow: 0 0 1em 0.2em green
+}
+
+input.function, button.function {
+    border-size: 1px;
+    background-color: #7d5d3b;
+    color: white
+}
+
+input.negative, button.negative {
+    background-color: red;
+    color: white
+}
+
+input.positive, button.positive {
+    background: #b9e356;
+    color: white
+}
+
+input[type="submit"] {
+    background: #1e62d0;
+    color: #ffab23
+}
+
+input[type="text"], textarea {
+    outline: none;
+    padding: 10px;
+    color: blue;
+    width: 90%;
+    transition: box-shadow 0.3s, border 0.3s;
+    border-radius: 0.8em;
+    margin-bottom: 1em;
+    margin-top: 0.5em
+}
+
+textarea {
+    resize: vertical
+}
+
+input[type="text"]:focus, textarea:focus {
+    border: solid 1px #red;
+    box-shadow: 0 0 1em 0.2em red
+}
+
+fieldset legend {
+    margin-left: -0.2em;
+    text-shadow: 1px 1px 1px #000, 3px 3px 5px #a3a3a3
+}
+
+fieldset {
+    border: none
+}
+
+/** Headers */
+h1, h2, h3, h4 {
+    font-family: 'Bangers', cursive;
+    margin-bottom: 1rem
+}
+
+h1 {
+    font-size: 2.5em
+}
+
+header h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 4.5em;
+    text-align: center;
+    transition-property: font-size;
+    transition-duration: 500ms;
+    display: flex;
+    justify-content: center
+}
+
+header h1:hover span {
+    display: block;
+    animation-duration: 1s;
+    animation-iteration-count: 2;
+    animation-direction: normal;
+    animation-timing-function: linear
+}
+
+header h1 span:nth-child(even) {
+    animation-name: psycholetters
+}
+
+header h1 span:nth-child(odd) {
+    animation-name: psycholetters;
+    animation-delay: 0s;
+    animation-direction: reverse
+}
+
+@keyframes psycholetters {
+    0% {
+        transform: rotate(0)
+    }
+    50% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform-origin: 10% 10%;
+        transform: rotate(360deg)
+    }
+}
+
+h2 {
+    font-size: 2em
+}
+
+h3 {
+    font-size: 1.5em
+}
+
+h4 {
+    font-size: 1.3em
+}
+
+@media (min-width: 640px) {
+    header h1 {
+        font-size: 8em
+    }
+}
+
+table {
+    margin-bottom: 1em
+}
+
+th {
+    padding: 1em
+}
+
+.longTable {
+    width: 100%;
+    text-align: center
+}
+
+.longTable tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.longTable th {
+    font-family: 'Press Start 2P', cursive
+}
+
+.longTable tr:hover {
+    border: solid 1px #f2f2f2;
+    box-shadow: 0 0 1em 0.2em #708090
+}
+
+.multipleColumns {
+    width: 100%
+}
+
+.multipleColumns tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.multipleColumns tr:hover {
+    border: solid 1px #f2f2f2;
+    box-shadow: 0 0 1em 0.2em #708090
+}
+
+.multipleColumns th {
+    font-size: 0.8em;
+    text-align: left;
+    font-family: 'Press Start 2P', cursive
+}
+
+.multipleColumns tr [colspan="2"] {
+    text-align: center
+}
+
+tfoot {
+    text-align: left;
+    font-size: 0.7em;
+    font-style: italic
+}
+
+/** Loading */
+div.loading {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    font-size: 1.5em;
+    color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: loadingText;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease
+}
+
+div.loading.full {
+    position: fixed;
+    line-height: 1em;
+    background-color: #FFF;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    z-index: 9999
+}
+
+div.loading.full p {
+    font-size: 2em
+}
+
+div.loading:after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(img/loading.svg) no-repeat center;
+    background-size: contain;
+    animation-name: loadingBackground;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite
+}
+
+div.loading.full:after {
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%
+}
+
+@keyframes loadingText {
+    from {
+        color: rgba(0, 0, 0, 0)
+    }
+    to {
+        color: rgba(0, 0, 0, 0.9)
+    }
+}
+
+@keyframes loadingBackground {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes panelsAnimation {
+    0% {
+        width: 50%
+    }
+    100% {
+        width: 100%
+    }
+}
+
+.panel {
+    border-radius: 0.8em;
+    animation-name: panelsAnimation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    width: 100%;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    text-align: center;
+    background: #bbb
+}
+
+.panelPositive {
+    background: #b9e356
+}
+
+.panelNegative {
+    background: red;
+    color: white
+}
+
+.warning {
+    position: relative
+}
+
+.message {
+    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #DFF2BF
+}
+
+@keyframes test {
+    0% {
+        transform: rotate(2deg)
+    }
+    33% {
+        transform: rotate(-2deg)
+    }
+    66% {
+        transform: rotate(1deg)
+    }
+    100% {
+        transform: rotate(-1deg)
+    }
+}
+
+div.warning {
+    border: 2px solid;
+    margin: 10px 0;
+    padding: 15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-style: outset;
+    border-color: #aaa;
+    animation-name: test;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    position: relative
+}
+
+.warning:after {
+    content: "";
+    background: url(img/travolta.gif);
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 71px;
+    height: 70px
+}
+
+p.textImportant {
+    display: inline-block;
+    text-shadow: -1px 0 #999, 0 1px #999, 1px 0 black, 0 -1px black;
+    border-style: solid;
+    border-bottom-width: 1px;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0
+}
+
+p.textAnimation {
+    animation: intresting 3s infinite
+}
+
+@keyframes intresting {
+    50% {
+        word-spacing: 2px
+    }
+}
+
+p.smallText {
+    font-size: 0.7em
+}
+
+p.storaBokstaver {
+    text-transform: uppercase
+}
+
+p.kapow {
+    display: inline-block;
+    position: relative;
+    animation: action 2s 1;
+    transform: rotate(-4deg)
+}
+
+@keyframes action {
+    0% {
+        font-size: 0.2em;
+        transform: rotate(3deg)
+    }
+    25% {
+        font-size: 0.4em;
+        transform: rotate(-3deg)
+    }
+    50% {
+        font-size: 0.6em;
+        transform: rotate(1.5deg)
+    }
+    75% {
+        font-size: 0.8em;
+        transform: rotate(-4deg)
+    }
+    100% {
+        font-size: 1em
+    }
+}
+
+p.speech {
+    position: relative;
+    text-align: center;
+    line-height: 2em;
+    background-color: #fff;
+    border: 8px solid #666;
+    border-radius: 30px;
+    margin-bottom: 3em;
+    animation-name: test;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1
+}
+
+p.speech:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 30px;
+    bottom: -45px;
+    border: 22px solid;
+    border-color: #666 transparent transparent #666
+}
+
+p.speech:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 38px;
+    bottom: -30px;
+    border: 15px solid;
+    border-color: #fff transparent transparent #fff;
+    animation-name: test;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1
+}
+
+p.thought {
+    position: relative;
+    text-align: center;
+    line-height: 2em;
+    background-color: #fff;
+    border: 8px solid #666;
+    border-radius: 150px;
+    z-index: 900;
+    animation-name: test;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    margin-bottom: 3em
+}
+
+p.thought:before {
+    content: ' ';
+    bottom: -47px;
+    left: 10px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 8px solid #666;
+    border-radius: 28px;
+    z-index: 950;
+    background: #fff
+}
+
+p.thought:after {
+    content: ' ';
+    bottom: -57px;
+    left: 5px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 8px solid #666;
+    border-radius: 28px;
+    background: #fff;
+    z-index: 999
+}
+
+.objects {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row
+}
+
+.objects > div {
+    box-shadow: -3px 3px 13px -7px rgba(0, 0, 0, 0.65);
+    flex: 1 0 31.33%
+}
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    font-size: 16px
+}
+
+body {
+    width: 100%;
+    font-family: "action_manregular";
+    color: #666;
+    margin: 0;
+    background: #f5f5f5
+}
+
+li {
+    list-style: none
+}
+
+p, div, section {
+    margin-bottom: 1rem
+}
+
+pre {
+    white-space: pre-wrap
+}
+
+pre > code {
+    display: block;
+    padding: 1em;
+    border: 3px solid #bbb;
+    background-color: #eee;
+    font-size: 0.75em
+}
+
+div.container {
+    background: #FFF;
+    -webkit-box-shadow: -3px 3px 13px -7px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow: -3px 3px 13px -7px rgba(0, 0, 0, 0.65);
+    box-shadow: -3px 3px 13px -7px rgba(0, 0, 0, 0.65)
+}

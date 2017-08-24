@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab1 styleguide</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="bundle.css">
+    <script src="main.js"></script>
+    <script src="panels.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<!--<div class="loading full"></div>-->
+<div class="container">
+    <header>
+        <h1>Style guide</h1>
+        <nav>
+            <ul>
+                <li><a href="#headers">Headers</a></li>
+                <li><a href="#forms">Forms</a></li>
+                <li><a href="#tables">Tables</a></li>
+                <li><a href="#messagesWarnings">Messages&nbsp;and&nbsp;warnings</a></li>
+                <li><a href="#panels">Panels</a>
+                    <ul>
+                        <li><a href="#panelNeutral">Neutral panel</a></li>
+                        <li><a href="#panelPositive">Positive panel</a></li>
+                        <li><a href="#panelNegative">Negative panel</a></li>
+                    </ul>
+                </li>
+                <li><a href="#text">Text</a></li>
+                <li><a href="#objectList">Object list</a></li>
+                <li><a href="#usage">Usage</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="headers">
+            <h2 class="styleguide">Headers</h2>
+            <h1>H1 - Main header</h1>
+            <h2>H2 - Header, level 2</h2>
+            <h3>H3 - Header, level 3</h3>
+            <h4>H4 - Header, level 4</h4>
+        </section>
+        <section id="tables">
+            <h2 class="styleguide">Tables</h2>
+            <table class="longTable">
+                <thead>
+                <tr>
+                    <th>Table header</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Data 1</td>
+                </tr>
+                <tr>
+                    <td>Data 2</td>
+                </tr>
+                <tr>
+                    <td>Data 3</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td>This is a long table</td>
+                </tr>
+                </tfoot>
+            </table>
+            <table class="multipleColumns">
+                <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>1:1</td>
+                    <td>2:1</td>
+                </tr>
+                <tr>
+                    <td>1:2</td>
+                    <td>2:2</td>
+                </tr>
+                <tr>
+                    <td>1:3</td>
+                    <td>2:3</td>
+                </tr>
+                <tr>
+                    <td colspan="2">colspan 2</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="2">This table have multiple columns</td>
+                </tr>
+                </tfoot>
+            </table>
+
+        </section>
+        <section id="indicators">
+            <h2 class="styleguide">Indicators</h2>
+            <div class="loading">
+                <p>Loading...</p>
+            </div>
+            <p>
+                <a href="#">click for full screen</a>
+            </p>
+
+        </section>
+        <section id="forms">
+            <h2 class="styleguide">Forms</h2>
+            <form>
+                <fieldset>
+                    <legend>Text input</legend>
+                    <input type="text" placeholder="SPLASH!"/>
+                    <input type="text" placeholder="Kashmak!#!!" disabled/>
+                    <textarea placeholder="Kapow #!%!!!"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Select</legend>
+                    <select>
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <legend>Radio buttons</legend>
+                    <input type="radio" name="radio1" value="value 1" checked> <label class="radioLabel">Value 1</label><br/>
+                    <input type="radio" name="radio1" value="value 2"> <label class="radioLabel">Value 2</label><br/>
+                    <input type="radio" name="radio1" value="value 3"> <label class="radioLabel">Value 3</label><br/>
+                </fieldset>
+                <fieldset>
+                    <legend>Buttons</legend>
+                    <button class="standard" name="standardButton">Standard button!</button>
+                    <button class="function" name="functionButton">Function button!</button>
+                    <button class="positive" name="positiveButton">Positive button!</button>
+                    <button class="negative" name="negativeButton">Negative button!</button>
+                    <input type="submit" value="Submit button">
+                </fieldset>
+            </form>
+        </section>
+
+        <section id="messagesWarnings">
+            <h2 class="styleguide">Messages/warnings</h2>
+            <div class="warning">Warning! You are stupid!</div>
+            <div class="message">Success! You have successfully ruined everything!</div>
+
+        </section>
+        <section id="panels">
+            <h2 class="styleguide">Panels</h2>
+            <div  class="panel">Neutral panel!!</div>
+            <div  class="panelPositive panel">Positive panel!</div>
+            <div  class="panelNegative panel">Negative panel!!!</div>
+        </section>
+        <section id="text">
+            <h2 class="styleguide">Text</h2>
+            <p>Vanlig text</p>
+            <p class="textImportant">Viktig text!</p>
+            <p class="textAnimation">Text som skall fånga intresset</p>
+            <p class="smallText">Lite mindre text</p>
+            <p class="storaBokstaver">Stora bokstäver!?</p>
+            <p class="kapow">Kapow!"#¤</p>
+            <p class="speech">"#¤!#"#"#¤""#"#"#¤!#"#"adasdalsdlasdm lasndasndoaisdaso idnasoidnasoi dnasoidnasiod nasidionasdno#</p>
+            <p class="thought">zzZZzzZZ aosdijasd aoidj as aosidja doijasd oajsdlknf alkn asldkna s </p>
+        </section>
+        <section id="objectList">
+            <h2 class="styleguide">List with objecs</h2>
+            <div class="objects">
+                <div class="loading">object ONE</div>
+                <div>Object TWO</div>
+                <div>object THREE</div>
+                <div>Object FOUR</div>
+                <div><h1>Header object five</h1></div>
+                <div><h2>Header2 object six</h2></div>
+                <div><h3>Header3 object seven</h3></div>
+            </div>
+        </section>
+        <section id="usage" class="full">
+            <h2>Usage</h2>
+            <h3>Layout</h3>
+            <p>For grid layout, place section-elements inside a main-element.</p>
+            <p>To force a section to span the full row, use class "full" on the section element.</p>
+            <pre>
+        <code>&lt;main&gt;
+  &lt;section&gt;
+          content here
+  &lt;/section&gt;
+&lt;/main&gt;</code>
+        </pre>
+            <h3>Page main header</h3>
+            <p>The main header of the page must be inside of a head-element.</p>
+            <pre>
+        <code>&lt;header&gt;
+&lt;h1&gt;Page header here!&lt;/h1&gt;</code>
+      </pre>
+            <h3>Navigation</h3>
+            <p>To get a responsive navigation bar with sub navigation menus, use the following html structure:</p>
+            <pre>
+        <code>&lt;header&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;href&quot;&gt;Nav item 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;href&quot;&gt;Nav item 2&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;href&quot;&gt;Nav item 3&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;href&quot;&gt;Sub navigatneion&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;href&quot;&gt;Sub nav item 1&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;href&quot;&gt;Sub nav item 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code>
+      </pre>
+            <h3>Loading indicator</h3>
+            <p>For a loading indicator, place a div with class "loading". To display text in the loading indicator, place a p-element inside the div.</p>
+            <pre>
+        <code>&lt;div class="loading"&gt;
+  &lt;p&gt;loading...&lt;/p&gt;
+&lt;/div&gt;</code>
+      </pre>
+            <p>For a fullscreen loading indicator, add class "full" to the div.</p>
+
+            <h3> Messages and Warnings</h3>
+            <p> There are currently one type of message and one type of warning</p>
+            <p> Use a div for theese with the right type of class. The text in the boxes should be within the div. </p>
+            <pre>
+		<code>&lt;div class="warning"&gt;This is a warning. Text in the warning should be placed here&lt;/div&gt; <br/>
+&lt;div class="message"&gt;This is a message. The text in the message goes here&lt;/div&gt;</code>
+	  </pre>
+            <h3> List with objects</h3>
+            <p>This list of objects is used with divs. This is a flexbox.</p>
+            <p> One div with the classname"objects" to specify the whole list. All underlying divs will take one space in the list.</p>
+            <pre>
+			<code>&lt;div class="objects"&gt;
+	&lt;div class="you can put styled objects here"&gt;This is object one. if you want text in the object. write it here.&lt;/div&gt;
+	&lt;div&gt;This is text for objet two.&lt;/div&gt;
+	&lt;div&gt;This is text for object three.&lt;/div&gt;
+&lt;/div&gt;</code>
+		</pre>
+            <h3>Text</h3>
+            <p>There is many different styles of text. They all use paragraf as their element with a specified classname.</p>
+            <p>For normal text just like this, dont use any classname.</p>
+            <pre>
+			<code>&lt;p&gt;normal text goes in here&lt;/p&gt;
+&lt;p class="textImportant"&gt;text with border bottom and shadows goes in here&lt;/p&gt;
+&lt;p class="textAnimation"&gt;moving text goes in here&lt;/p&gt;
+&lt;p class="smallText"&gt;small text here&lt;/p&gt;
+&lt;p class="storaBokstaver"&gt;text here translates to only capital letters&lt;/p&gt;
+&lt;p class="kapow"&gt;animated text here&lt;/p&gt;
+&lt;p class="speech"&gt;a speechbubble around this text&lt;/p&gt;
+&lt;p class="thought"&gt;thought bubbles around this text&lt;/p&gt;</code>
+		</pre>
+
+            <h3>Panels</h3>
+            <p>Panels are div element with a specific class. All panels use the "panel" class. This gives a neutral look.</p>
+            <p>for negative and positive panels you also have to specify their specific class.</p>
+
+            <pre>
+			<code>&lt;div  class="panel"&gt;Text for a neutral panel here&lt;/div&gt;
+&lt;div  class="panelPositive panel"&gt;Text for a positive panel here&lt;/div&gt;
+&lt;div  class="panelNegative panel"&gt;Text for a negative panel here&lt;/div&gt;</code>
+		</pre>
+            <h3>Tables</h3>
+            <p>Two different types of tables. Both use table element. Use correct classname for the table to get the right styling.</p>
+            <p>table class "longTable" is used for only one column while table class "multipleColumns" is styled for many columns</p>
+            <p class="textImportant">One column table:</p>
+            <pre>
+			<code>&lt;table class="longTable"&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Table header goes here&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Data goes here&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+  &lt;tfoot&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Extra information about table goes here&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tfoot&gt;
+&lt;/table&gt;</code>
+		</pre>
+            <p class="textImportant">Multiple columns table:</p>
+            <pre>
+		<code>&lt;table class="multipleColumns"&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th>Column 1 header goes here&lt;/th&gt;
+			&lt;th>Column 2 header goes here&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Data for row 1, column 1 goes here&lt;/td&gt;
+			&lt;td&gt;Data for row 1 column 2 goes here&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Data for row 2 column 1 goes here&lt;/td&gt;
+			&lt;td&gt;Data for row 2 column 2 goes here&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;tfoot&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Extra information about table goes here&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tfoot&gt;
+&lt;/table&gt;</code>
+		</pre>
+            <h3>Forms</h3>
+            <p>Form element for sending data. Styles legend of fieldset. Styles for text input, select, radio buttons and buttons.</p>
+            <p>This exampel below collects all above types within one form but multiple fieldsets. You will change fieldsets and form to your needs.</p>
+            <pre>
+			<code>&lt;form&gt;
+	&lt;fieldset&gt;
+		&lt;legend>Header for the fieldset&lt;/legend&gt;
+		&lt;input type="text" placeholder="Text to show in textarea while the area is empty"/&gt;
+		&lt;input type="text" placeholder="Text to show in a disabled(grey) textarea" disabled/&gt;
+		&lt;textarea placeholder="Text to show in a textarea before while area is empty.
+		this textarea is scrollable up and down. and text starts att a new row if needed"&gt;&lt;/textarea&gt;
+    &lt;/fieldset&gt;
+
+	&lt;fieldset&gt;
+		&lt;legend>Header for the fieldset&lt;/legend&gt;
+		&lt;select&gt;
+			&lt;option&gt;Text for option one&lt;/option&gt;
+			&lt;option&gt;Text for option two&lt;/option&gt;
+		&lt;/select&gt;
+    &lt;/fieldset&gt;
+
+    &lt;fieldset&gt;
+		&lt;legend&gt;Header for the fieldset&lt;/legend&gt;
+		&lt;input type="radio" name="radio1" value="value 1" checked&gt; &lt;label class="radioLabel"&gt;Text for the radiobuttons label one here&lt;/label&gt;
+		&lt;input type="radio" name="radio1" value="value 2"&gt; &lt;label class="radioLabel"&gt;Text for the radiobuttons label two here&lt;/label&gt;
+    &lt;/fieldset&gt;
+    &lt;fieldset&gt;
+		&lt;legend&gt;Header for the fieldset&lt;/legend&gt;
+		&lt;button class="standard" name="standardButton"&gt;Text on the standardbutton&lt;/button&gt;
+		&lt;button class="function" name="functionButton"&gt;Text on the functionButton&lt;/button&gt;
+		&lt;button class="positive" name="positiveButton"&gt;text on the positiveButton&lt;/button&gt;
+		&lt;button class="negative" name="negativeButton"&gt;text on the negativeButton&lt;/button&gt;
+		&lt;input type="submit" value="Button to submit the form. Text on the button here"&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;			</code>
+		</pre>
+        </section>
+    </main>
+    <script>loopaShit();</script>
+    <script src="dragdrop.js"></script>
+</div>
+</body>
+</html>

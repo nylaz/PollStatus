@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="bundle.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Poll status</title>
+</head>
+<body ng-app="myApp">
+<header>
+    <h1>
+        Poll Status
+    </h1>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#!/Ongoing_polls">Ongoing polls</a></li>
+                <li><a href="#!/Finished_polls">Finished polls</a></li>
+            </ul>
+        </nav>
+    </header>
+</header>
+
+<div ng-view></div>
+
+<div>Copyright nylaz<span app-version></span></div>
+
+<script>
+    var app = angular.module("myApp", ["ngRoute"]);
+    app.config(function($routeProvider) {
+        $routeProvider
+            .when("/Ongoing_polls", {
+                templateUrl : "Ongoing_polls.html"
+            })
+            .when("/Finished_polls", {
+                templateUrl : "Finished_polls.html"
+            });
+    });
+</script>
+</body>
+</html>
