@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<--SessionID: e52f39cf-d0aa-4fee-a24c-08646747057e -->
+
 <link rel="stylesheet" href="bundle.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-
 
 <head>
     <meta charset="UTF-8">
@@ -18,6 +19,8 @@
     <header>
         <nav>
             <ul>
+                <li><a href="#!/Home">Home</a></li>
+
                 <li><a href="#!/Ongoing_polls">Ongoing polls</a></li>
                 <li><a href="#!/Finished_polls">Finished polls</a></li>
             </ul>
@@ -27,19 +30,48 @@
 
 <div ng-view></div>
 
-<div>Copyright nylaz<span app-version></span></div>
+<div>Copyright nylaz corp<span app-version></span></div>
 
 <script>
     var app = angular.module("myApp", ["ngRoute"]);
-    app.config(function($routeProvider) {
+    app.config(function ($routeProvider) {
         $routeProvider
+            .when("", {
+                templateUrl: "Home.html"
+            })
+            .when("/Home", {
+                templateUrl: "Home.html"
+            })
             .when("/Ongoing_polls", {
-                templateUrl : "Ongoing_polls.html"
+                templateUrl: "Ongoing_polls.html"
             })
             .when("/Finished_polls", {
-                templateUrl : "Finished_polls.html"
+                templateUrl: "Finished_polls.html"
             });
     });
+</script>
+<div id="demo">
+    <button type="button" onclick="loadXMLDoc()">Change Content</button>
+</div>
+
+<script>
+    function loadXMLDoc() {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for older browsers
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                    this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "xmlhttp_info.txt", true);
+        xmlhttp.send();
+    }
 </script>
 </body>
 </html>
