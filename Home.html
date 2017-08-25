@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
 <body>
-<div>
-    Hej
+
+<div ng-app="myApp2" ng-controller="myCtrl">
+    <ul>
+        <li ng-repeat="x in groupData">
+            {{ x.QuestionText }}
+        </li>
+    </ul>
 </div>
 
+<script>
 
+    var myApp2 = angular.module("myApp2", []);
+    myApp2.controller('myCtrl', function ($scope, $http) {
+        $http.get("http://iftacvoteapi.azurewebsites.net/vote/GetQuestions", {
+            headers: {"Authorization": "e52f39cf-d0aa-4fee-a24c-08646747057e"}
+        })
+            .then(function (response) {
+                $scope.groupData = response.data;
+            });
+    });
+
+</script>
 
 </body>
 </html>

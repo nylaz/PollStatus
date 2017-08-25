@@ -10,7 +10,7 @@
     <title>Poll status</title>
 </head>
 
-<body>
+<body ng-app="myApp">
 <header>
     <h1>
         Poll Status
@@ -30,15 +30,9 @@
 
 </div>
 
-<div ng-app="myApp" ng-controller="myCtrl">
-    <h1>
-        {{groupData}}
-    </h1>
-</div>
-
 <script>
-    var app = angular.module("myApp", ["ngRoute"]);
-    app.config(function ($routeProvider) {
+    var myApp = angular.module("myApp", ["ngRoute"]);
+    myApp.config(function ($routeProvider) {
         $routeProvider
             .when("", {
                 templateUrl: "Home.html"
@@ -51,18 +45,6 @@
             })
             .when("/Finished_polls", {
                 templateUrl: "Finished_polls.html"
-            });
-    });
-</script>
-
-<script>
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope, $http) {
-        $http.get("http://iftacvoteapi.azurewebsites.net/vote/GetQuestions", {
-            headers: {"Authorization": "e52f39cf-d0aa-4fee-a24c-08646747057e"}
-        })
-            .then(function(response) {
-                $scope.groupData = response.data;
             });
     });
 </script>
