@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<--SessionID: e52f39cf-d0aa-4fee-a24c-08646747057e -->
-
 <link rel="stylesheet" href="bundle.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
@@ -11,7 +9,8 @@
     <meta charset="UTF-8">
     <title>Poll status</title>
 </head>
-<body ng-app="myApp">
+
+<body>
 <header>
     <h1>
         Poll Status
@@ -20,7 +19,6 @@
         <nav>
             <ul>
                 <li><a href="#!/Home">Home</a></li>
-
                 <li><a href="#!/Ongoing_polls">Ongoing polls</a></li>
                 <li><a href="#!/Finished_polls">Finished polls</a></li>
             </ul>
@@ -28,9 +26,15 @@
     </header>
 </header>
 
-<div ng-view></div>
+<div ng-view>
 
-<div>Copyright nylaz corp<span app-version></span></div>
+</div>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+    <h1>
+        {{groupData}}
+    </h1>
+</div>
 
 <script>
     var app = angular.module("myApp", ["ngRoute"]);
@@ -50,28 +54,18 @@
             });
     });
 </script>
-<div id="demo">
-    <button type="button" onclick="loadXMLDoc()">Change Content</button>
-</div>
 
 <script>
-    function loadXMLDoc() {
-        var xmlhttp;
-        if (window.XMLHttpRequest) {
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for older browsers
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("demo").innerHTML =
-                    this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "xmlhttp_info.txt", true);
-        xmlhttp.send();
-    }
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $http) {
+        $http.get("http://iftacvoteapi.azurewebsites.net/vote/GetQuestions", {
+            headers: {"Authorization": "e52f39cf-d0aa-4fee-a24c-08646747057e"}
+        })
+            .then(function(response) {
+                $scope.groupData = response.data;
+            });
+    });
 </script>
+
 </body>
 </html>
