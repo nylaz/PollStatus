@@ -30,6 +30,8 @@
 
 </div>
 
+
+
 <script>
     var myApp = angular.module("myApp", ["ngRoute"]);
     myApp.config(function ($routeProvider) {
@@ -38,13 +40,25 @@
                 templateUrl: "Home.html"
             })
             .when("/Home", {
-                templateUrl: "Home.html"
+                templateUrl: "Home.html",
+                controller: "myCtrl"
             })
             .when("/Ongoing_polls", {
                 templateUrl: "Ongoing_polls.html"
             })
             .when("/Finished_polls", {
                 templateUrl: "Finished_polls.html"
+            });
+    });
+</script>
+
+<script>
+    myApp.controller('myCtrl', function ($scope, $http) {
+        $http.get("http://iftacvoteapi.azurewebsites.net/vote/GetQuestions", {
+            headers: {"Authorization": "e52f39cf-d0aa-4fee-a24c-08646747057e"}
+        })
+            .then(function (response) {
+                $scope.groupData = response.data;
             });
     });
 </script>
