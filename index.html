@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="bundle.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="Index.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -25,43 +26,6 @@
         </nav>
     </header>
 </header>
-
-<div ng-view>
-
-</div>
-
-
-
-<script>
-    var myApp = angular.module("myApp", ["ngRoute"]);
-    myApp.config(function ($routeProvider) {
-        $routeProvider
-            .when("", {
-                templateUrl: "Home.html"
-            })
-            .when("/Home", {
-                templateUrl: "Home.html",
-                controller: "myCtrl"
-            })
-            .when("/Ongoing_polls", {
-                templateUrl: "Ongoing_polls.html"
-            })
-            .when("/Finished_polls", {
-                templateUrl: "Finished_polls.html"
-            });
-    });
-</script>
-
-<script>
-    myApp.controller('myCtrl', function ($scope, $http) {
-        $http.get("http://iftacvoteapi.azurewebsites.net/vote/GetQuestions", {
-            headers: {"Authorization": "e52f39cf-d0aa-4fee-a24c-08646747057e"}
-        })
-            .then(function (response) {
-                $scope.groupData = response.data;
-            });
-    });
-</script>
-
+<div ng-view></div>
 </body>
 </html>

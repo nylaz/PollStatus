@@ -1,6 +1,6 @@
 <div class="objects">
-    <div ng-repeat="x in groupData">
-        Fråga: {{x.QuestionText}} <br>
-        Skapad: {{x.Created}}
+    <div ng-repeat="x in groupData" ng-click="click(x)">
+        {{x.QuestionText}}
     </div>
 </div>
+
