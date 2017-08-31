@@ -13,14 +13,18 @@ myApp.config(function ($routeProvider) {
             templateUrl: "Finished_polls.html",
             controller: "myCtrl"
         })
-        .when("/Poll_info", {
+        .when("/Poll_info/:id", {
             templateUrl: "Poll_info.html",
+            controller: "myCtrl2"
+        })
+        .otherwise({
+            templateUrl: "Home.html",
             controller: "myCtrl"
         });
 
 });
 
-myApp.controller('myCtrl', function ($scope, $http) {
+myApp.controller('myCtrl', function ($scope, $http, $location) {
     $http.get("http://iftacvoteapi.azurewebsites.net/vote/GetQuestions", {
         headers: {"Authorization": "e52f39cf-d0aa-4fee-a24c-08646747057e"}
     })
@@ -28,11 +32,17 @@ myApp.controller('myCtrl', function ($scope, $http) {
             $scope.groupData = response.data;
         });
     $scope.click = function (x) {
-        $http.get("http://iftacvoteapi.azurewebsites.net/vote/GetQuestionStatus?questionId=9", {
-            headers: {"Authorization": "e52f39cf-d0aa-4fee-a24c-08646747057e"}
-        })
-            .then(function (response) {
-                $scope.groupData = response.data;
-            })
+        console.log(x);
+        $location.path("/Poll_info/" + x.QuestionId);
     }
+});
+
+myApp.controller('myCtrl2', function ($scope, $http, $routeParams) {
+    console.log($routeParams.id);
+    $http.get("http://iftacvoteapi.azurewebsites.net/vote/GetQuestion?questionId=" + $routeParams.id, {
+        headers: {"Authorization": "e52f39cf-d0aa-4fee-a24c-08646747057e"}
+    })
+        .then(function (response) {
+            $scope.groupData = response.data;
+        });
 });
