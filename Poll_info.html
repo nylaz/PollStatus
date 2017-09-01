@@ -11,7 +11,20 @@
                 Owner: {{data.UserId}}<br>
                 Poll: {{data.QuestionText}}<br>
                 Summary: {{data.Summary}}<br>
-                <button class="function" name="functionButton" ng-click="click(data)">Send reminder</button>
+                <button class="function" name="listPeople" ng-click="getPeople(data.QuestionId)">List the
+                    voting group
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="function" name="sendReminder" ng-click="sendReminder(data.QuestionId)">Send reminder
+                </button>
+            </td>
+        </tr>
+        <tr ng-repeat="x in personData">
+            <td>
+                {{x.UserId}} : {{x.VoteValue}}
             </td>
         </tr>
         </tbody>

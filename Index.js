@@ -5,21 +5,13 @@ myApp.config(function ($routeProvider) {
             templateUrl: "Home.html",
             controller: "homeController"
         })
-        .when("/Ongoing_polls", {
-            templateUrl: "Ongoing_polls.html",
-            controller: "myCtrl"
-        })
-        .when("/Finished_polls", {
-            templateUrl: "Finished_polls.html",
-            controller: "myCtrl"
-        })
         .when("/Poll_info/:id", {
             templateUrl: "Poll_info.html",
             controller: "pollInfoController"
         })
         .otherwise({
             templateUrl: "Home.html",
-            controller: "myCtrl"
+            controller: "homeController"
         });
 });
 
@@ -42,8 +34,16 @@ myApp.controller('pollInfoController', function ($scope, $http, $routeParams) {
         .then(function (response) {
             $scope.data = response.data;
         });
-    $scope.click = function(data) {
-        $http.get("http://iftacvoteapi.azurewebsites.net/vote/SendReminder?questionId=" + data.QuestionId, {
+    $scope.getPeople = function(qId) {
+        $http.get("http://iftacvoteapi.azurewebsites.net/vote/GetQuestionStatus?questionId=" + qId, {
+            headers: {"Authorization": "e52f39cf-d0aa-4fee-a24c-08646747057e"}
+        })
+            .then(function (response) {
+                $scope.personData = response.data;
+            });
+    }
+    $scope.sendReminder = function(qId) {
+        $http.get("http://iftacvoteapi.azurewebsites.net/vote/SendReminder?questionId=" + qId, {
             headers: {"Authorization": "e52f39cf-d0aa-4fee-a24c-08646747057e"}
         })
     }
