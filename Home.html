@@ -1,15 +1,17 @@
 <div>
-        <table class="longTable">
-            <thead>
-            <tr>
-                <th>All polls</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="x in groupData" ng-click="click(x)">
-                <td>{{x.QuestionText}}</td>
-            </tr>
-            </tbody>
-        </table>
+    <table class="longTable">
+        <thead>
+        <tr>
+            <th>All polls</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="x in groupData" ng-click="click(x)">
+            <td>
+                {{x.QuestionText}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 

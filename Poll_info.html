@@ -6,8 +6,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="x in groupData" >
-            <td>{{x.QuestionText}}</td>
+        <tr>
+            <td>
+                Owner: {{data.UserId}}<br>
+                Poll: {{data.QuestionText}}<br>
+                Summary: {{data.Summary}}<br>
+                <button class="function" name="functionButton" ng-click="click(data)">Send reminder</button>
+            </td>
         </tr>
         </tbody>
     </table>
